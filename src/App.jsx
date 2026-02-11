@@ -184,7 +184,7 @@ function Header({ scrolled }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <img src="/images/logo.svg" alt="Detailia Logo" className="w-10 h-10" />
+            <img src="/images/logo.svg" alt="Detailia Logo" className={`w-10 h-10 transition-all duration-300 ${scrolled ? 'brightness-0' : 'brightness-100'}`} />
             <h1
               className={`text-2xl font-bold transition-colors duration-300 ${
                 scrolled ? 'text-primary' : 'text-white'
