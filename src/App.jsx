@@ -109,7 +109,6 @@ const CONTENT = {
         'Vacuum (mats, carpets & boot)',
         'Multi-surface wipe down',
         'Detailing brush clean for tight spots',
-        'Windows cleaned',
       ],
       popular: true,
     },
