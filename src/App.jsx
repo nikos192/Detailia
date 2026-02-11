@@ -505,7 +505,7 @@ function About() {
 
           <div className="relative h-96 md:h-full flex items-center justify-center">
             <div className="w-full aspect-square bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl shadow-subtle flex items-center justify-center overflow-hidden">
-              <img src="/images/car-3.png" alt="Detailing showcase" className="w-full h-full object-cover" />
+              <img src="/images/car-5.png" alt="Detailing showcase" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
