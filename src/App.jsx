@@ -568,21 +568,29 @@ function Contact() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        vehicle: '',
-        service: '',
-        message: '',
+    try {
+      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
       })
-      setSubmitted(false)
-    }, 3000)
+      setSubmitted(true)
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          vehicle: '',
+          service: '',
+          message: '',
+        })
+        setSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    }
   }
 
   return (
