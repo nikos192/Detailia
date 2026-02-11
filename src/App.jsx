@@ -519,7 +519,7 @@ function WhyChooseUs() {
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="section-title">Why Choose Detailia GC</h2>
+          <h2 className="section-title">Our Strengths</h2>
           <p className="section-subtitle mx-auto">
             We deliver premium results with exceptional service every time
           </p>
