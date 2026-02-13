@@ -112,6 +112,25 @@ const CONTENT = {
       ],
       popular: true,
     },
+    {
+      title: 'Ceramic Coat',
+      icon: '🛡️',
+      priceRange: 'From $450',
+      priceNote: 'Price varies by vehicle size',
+      duration: 'Approx. 4-6 hours',
+      description: 'Long-lasting gloss and paint protection',
+      features: [
+        'Thorough exterior wash & decontamination',
+        'Iron/fallout removal',
+        'Clay bar treatment',
+        'Light machine polish',
+        'Professional ceramic coating application',
+        'High-gloss hydrophobic finish (up to 12 months)',
+      ],
+      popular: false,
+      ctaLabel: 'Get Quote',
+      ctaHref: '#contact',
+    },
   ],
   monthlyPlan: {
     title: 'Monthly Detail Plan',
@@ -291,6 +310,22 @@ function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen bg-gradient-to-br from-primary via-gray-900 to-primary flex items-center pt-16 overflow-hidden">
+      {/* Background video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-35"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/hero-poster.jpg"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Video overlay for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-gray-900/70 to-primary/80" aria-hidden="true"></div>
+
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow"></div>
@@ -440,16 +475,29 @@ function Packages() {
                   ))}
                 </ul>
 
-                <button
-                  onClick={scrollToContact}
-                  className={`w-full py-3 rounded-lg font-semibold transition-colors duration-300 ${
-                    pkg.popular
-                      ? 'bg-white text-blue-600 hover:bg-blue-50'
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
-                  }`}
-                >
-                  Request Quote
-                </button>
+                {pkg.ctaHref ? (
+                  <a
+                    href={pkg.ctaHref}
+                    className={`w-full py-3 rounded-lg font-semibold transition-colors duration-300 text-center ${
+                      pkg.popular
+                        ? 'bg-white text-blue-600 hover:bg-blue-50'
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
+                  >
+                    {pkg.ctaLabel || 'Request Quote'}
+                  </a>
+                ) : (
+                  <button
+                    onClick={scrollToContact}
+                    className={`w-full py-3 rounded-lg font-semibold transition-colors duration-300 ${
+                      pkg.popular
+                        ? 'bg-white text-blue-600 hover:bg-blue-50'
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
+                  >
+                    {pkg.ctaLabel || 'Request Quote'}
+                  </button>
+                )}
               </div>
             </div>
           ))}
