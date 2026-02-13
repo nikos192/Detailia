@@ -112,26 +112,23 @@ const CONTENT = {
       ],
       popular: true,
     },
-    {
-      title: 'Ceramic Coat',
-      icon: '🛡️',
-      priceRange: 'From $450',
-      priceNote: 'Price varies by vehicle size',
-      duration: 'Approx. 4-6 hours',
-      description: 'Long-lasting gloss and paint protection',
-      features: [
-        'Thorough exterior wash & decontamination',
-        'Iron/fallout removal',
-        'Clay bar treatment',
-        'Light machine polish',
-        'Professional ceramic coating application',
-        'High-gloss hydrophobic finish (up to 12 months)',
-      ],
-      popular: false,
-      ctaLabel: 'Get Quote',
-      ctaHref: '#contact',
-    },
   ],
+  ceramicCoat: {
+    title: 'Ceramic Coat',
+    icon: '🛡️',
+    duration: 'Approx. 4-6 hours',
+    description: 'Long-lasting gloss and paint protection',
+    features: [
+      'Thorough exterior wash & decontamination',
+      'Iron/fallout removal',
+      'Clay bar treatment',
+      'Light machine polish',
+      'Professional ceramic coating application',
+      'High-gloss hydrophobic finish (up to 12 months)',
+    ],
+    ctaLabel: 'Get Quote',
+    ctaHref: '#contact',
+  },
   monthlyPlan: {
     title: 'Monthly Detail Plan',
     price: '$130/month',
@@ -503,6 +500,32 @@ function Packages() {
           ))}
         </div>
 
+        {/* Ceramic Coat */}
+        <div className="bg-gradient-to-r from-gray-900 to-primary rounded-2xl p-8 md:p-12 text-white mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <div className="text-5xl">{CONTENT.ceramicCoat.icon}</div>
+              <h3 className="text-3xl font-bold">{CONTENT.ceramicCoat.title}</h3>
+              <p className="text-gray-300 text-lg">{CONTENT.ceramicCoat.description}</p>
+              <p className="text-sm text-gray-400">{CONTENT.ceramicCoat.duration}</p>
+              <a
+                href={CONTENT.ceramicCoat.ctaHref}
+                className="inline-block px-8 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                {CONTENT.ceramicCoat.ctaLabel}
+              </a>
+            </div>
+            <ul className="space-y-4">
+              {CONTENT.ceramicCoat.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-100 text-lg">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         {/* Monthly Plan */}
         <div className="bg-gradient-to-r from-primary to-gray-800 rounded-2xl p-8 md:p-12 text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -762,6 +785,7 @@ function Contact() {
                     {pkg.title} - {pkg.priceRange}
                   </option>
                 ))}
+                <option value={CONTENT.ceramicCoat.title}>{CONTENT.ceramicCoat.title}</option>
                 <option value="Monthly Plan">{CONTENT.monthlyPlan.title}</option>
               </select>
             </div>
